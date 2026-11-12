@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#12352b">
+<title>Karácsonyi kívánságlistám</title>
+<style>
+:root{color-scheme:light;--green:#12352b;--ink:#202d26;--cream:#f7f3e9;--paper:#fffcf5;--line:#e0d8c8;--red:#8a382c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:1rem/1.55 system-ui,sans-serif}
+header{background:radial-gradient(ellipse at 80% 0%,#295345,transparent 65%),var(--green);color:#fff8e9;border-bottom:5px solid #c59b5e}
+header div,main{width:min(1040px,calc(100% - 2rem));margin:auto}
+header div{padding:clamp(2.5rem,7vw,5rem) 0}
+h1,h2{font-family:Georgia,serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2.5rem,7vw,5rem);letter-spacing:-.045em;max-width:13ch;overflow-wrap:anywhere}
+header p{color:#e9decb;margin:1rem 0 0}
+main{padding:1.4rem 0 3rem}
+.note{margin:0 0 1.2rem;color:#46554a;font-size:.94rem}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+article{display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 5px 18px #2e211009}
+.art{display:grid;place-items:center;height:116px;background:radial-gradient(circle at 50% 85%,#fff8,transparent 67%),var(--tint,#eadbc1);font-size:3.4rem;line-height:1;position:relative}
+.art img{height:98px;max-width:100%;object-fit:contain;position:absolute;box-shadow:0 3px 9px #0004;border-radius:2px}
+.card{display:flex;flex-direction:column;flex:1;padding:1.05rem 1.15rem}
+h2{font-size:1.4rem}
+.card p{margin:.6rem 0;color:#414b40}
+.links{display:flex;flex-wrap:wrap;gap:.5rem .85rem;margin:.35rem 0 .8rem}
+a{color:var(--red);font-weight:650;text-underline-offset:.2em}
+label{margin-top:auto;min-height:44px;display:flex;gap:.55rem;align-items:center;border-top:1px solid var(--line);padding-top:.35rem;color:#29483a;cursor:pointer}
+input{width:1.2rem;height:1.2rem;accent-color:#24563e;margin:0}
+article:has(input:checked){border-color:#4f7b61}
+:focus-visible{outline:3px solid #a14a35;outline-offset:3px}
+@media(max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.grid{grid-template-columns:1fr}.art{height:106px}.art img{height:90px}}
+.estimate{display:grid;gap:.2rem;font-size:.9rem;font-weight:650;color:#29483a;margin:.35rem 0 .75rem}
+.estimate .price-label{display:block;min-height:0;border:0;padding:0;margin:0}
+.estimate input{width:100%;height:2.65rem;border:1px solid #a59e91;border-radius:8px;padding:.45rem .6rem;background:#fff;color:var(--ink);font:inherit}
+.budget{margin:0 0 1rem;padding:1rem 1.15rem;background:#e5ede4;border:1px solid #becfc0;border-radius:14px}
+.budget p{margin:.35rem 0 0}
+.budget output{display:block;font-size:1.2rem;font-weight:700}
+.budget output[data-over="true"]{color:var(--red)}
+.extra{margin-top:1rem}
+.extra .card{display:block}
+.extra-fields{display:grid;grid-template-columns:2fr 1fr;gap:.8rem}
+@media(max-width:550px){.extra-fields{grid-template-columns:1fr;gap:0}}
+</style>
+</head>
+<body>
+<header><div>
+<h1>Karácsonyi kívánságlistám</h1>
+<p>Pár ötlet, aminek örülnék. A megbeszélt keret 15 000 Ft.</p>
+</div></header>
+<main>
+<p class="note" id="pipa">A pipákat és a beírt összegeket ez a böngésző jegyzi meg.</p>
+<section class="budget" aria-labelledby="keret">
+<h2 id="keret">Keret és becsült összeg</h2>
+<output id="osszeg" aria-live="polite">Becsült összeg: 0 Ft / 15 000 Ft</output>
+<p id="iranyar">Az összegek tájékoztató jellegű irányárak. Átírhatod őket. Az összesítő csak a bejelölt tételeket adja össze. A tényleges ár eltérhet, és a szállítás pluszköltség lehet.</p>
+</section>
+<div class="grid">
+<article aria-labelledby="konyv">
+<div class="art" style="--tint:#dfd4be"><span aria-hidden="true">📚</span><img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1636887028i/59615233.jpg" alt="A könyv borítója" referrerpolicy="no-referrer" onerror="this.hidden=true"></div>
+<div class="card"><h2 id="konyv">The Monsters Know What They're Doing</h2>
+<p>Keith Ammann angol nyelvű könyve a Dungeons &amp; Dragons szörnyeinek harci taktikáiról. ISBN 9781982122669.</p>
+<div class="links"><a href="https://www.prospero.hu/hu/konyv_seo/the-monsters-know-what-theyre-doing-isbn-9781982122669">Könyv a Prosperónál ↗</a></div>
+<div class="estimate">
+<span id="ar-tipp-konyv">A Prosperónál ellenőrzött ár.</span>
+<label for="ar-konyv" class="price-label">Becsült ár (Ft)</label>
+<input id="ar-konyv" type="number" min="0" max="999999999" step="1" inputmode="numeric" value="8000" aria-describedby="ar-tipp-konyv">
+</div>
+<label><input id="kesz-konyv" data-price="ar-konyv" type="checkbox" aria-describedby="pipa"> Megvan</label></div>
+</article>
+<article aria-labelledby="tea">
+<div class="art" style="--tint:#e4ddbc"><span aria-hidden="true">🫖</span></div>
+<div class="card"><h2 id="tea">Tea és finomságok</h2>
+<p><strong>Teának örülnék a legjobban.</strong> Jöhet egy kis adag különleges tea vagy egy válogatás, amiben többfélét is meg lehet kóstolni.</p>
+<p>Csoki, csipsz, kávé vagy bármilyen különleges nasi is jöhet. A marcipánt nem szeretem.</p>
+<div class="estimate">
+<span id="ar-tipp-tea">Egy kisebb teaválogatásra szánt összeg.</span>
+<label for="ar-tea" class="price-label">Becsült ár (Ft)</label>
+<input id="ar-tea" type="number" min="0" max="999999999" step="1" inputmode="numeric" value="3500" aria-describedby="ar-tipp-tea">
+</div>
+<label><input id="kesz-tea" data-price="ar-tea" type="checkbox" aria-describedby="pipa"> Megvan</label></div>
+</article>
+<article aria-labelledby="utalvany">
+<div class="art" style="--tint:#d9e5d9"><span aria-hidden="true">🎁</span></div>
+<div class="card"><h2 id="utalvany">Ajándékutalvány</h2>
+<p>Steam vagy Amazon. Digitális utalvány is tökéletes.</p>
+<div class="links"><a href="https://store.steampowered.com/digitalgiftcards/?l=hungarian">Steam ↗</a><a href="https://www.amazon.de/dp/B07Q1JNC7R">Amazon.de ↗</a></div>
+<div class="estimate">
+<span id="ar-tipp-utalvany">Javasolt utalványérték.</span>
+<label for="ar-utalvany" class="price-label">Becsült ár (Ft)</label>
+<input id="ar-utalvany" type="number" min="0" max="999999999" step="1" inputmode="numeric" value="5000" aria-describedby="ar-tipp-utalvany">
+</div>
+<label><input id="kesz-utalvany" data-price="ar-utalvany" type="checkbox" aria-describedby="pipa"> Megvan</label></div>
+</article>
+<article aria-labelledby="poszter">
+<div class="art" style="--tint:#ecd6cb"><span aria-hidden="true">🖼️</span></div>
+<div class="card"><h2 id="poszter">Poszter vagy falikép</h2>
+<p>Videójátékos vagy Dungeons &amp; Dragons témában. Judit tud segíteni olyan mintát választani, ami tetszene.</p>
+<div class="links"><a href="https://www.qwertee.com/shop/prints">Qwertee ↗</a><a href="https://displate.com/">Displate ↗</a></div>
+<div class="estimate">
+<span id="ar-tipp-poszter">Papírposzterre szánt összeg. A fém falikép drágább lehet.</span>
+<label for="ar-poszter" class="price-label">Becsült ár (Ft)</label>
+<input id="ar-poszter" type="number" min="0" max="999999999" step="1" inputmode="numeric" value="8000" aria-describedby="ar-tipp-poszter">
+</div>
+<label><input id="kesz-poszter" data-price="ar-poszter" type="checkbox" aria-describedby="pipa"> Megvan</label></div>
+</article>
+<article aria-labelledby="kupak">
+<div class="art" style="--tint:#dedbee"><span aria-hidden="true">⌨️</span></div>
+<div class="card"><h2 id="kupak">Egyedi billentyűsapka</h2>
+<p>Egy különleges billentyűsapka a billentyűzetemre. Az alábbi boltban vannak jó ötletek, de a szállítás drága lehet. Ha Budapesten találsz ilyet személyesen, az is jó.</p>
+<div class="links"><a href="https://keycapstore.nl/en/shop/?category=artisan-keycaps">Ötletek a Keycap Store-ban ↗</a></div>
+<div class="estimate">
+<span id="ar-tipp-kupak">Egy billentyűsapkára szánt összeg, szállítás nélkül.</span>
+<label for="ar-kupak" class="price-label">Becsült ár (Ft)</label>
+<input id="ar-kupak" type="number" min="0" max="999999999" step="1" inputmode="numeric" value="6000" aria-describedby="ar-tipp-kupak">
+</div>
+<label><input id="kesz-kupak" data-price="ar-kupak" type="checkbox" aria-describedby="pipa"> Megvan</label></div>
+</article>
+<article aria-labelledby="repter">
+<div class="art" style="--tint:#ebdbc0"><span aria-hidden="true">🥃</span></div>
+<div class="card"><h2 id="repter">Reptéri finomságok</h2>
+<p>Whisky vagy valami más finom ital, ha a reptéren találsz olyat, amit fel tudsz vinni a gépre. Kolbásznak vagy Pick snackszaláminak is örülnék.</p>
+<div class="estimate">
+<span id="ar-tipp-repter">Kisebb finomságra szánt összeg. Az ital és a szalámi ára eltérhet.</span>
+<label for="ar-repter" class="price-label">Becsült ár (Ft)</label>
+<input id="ar-repter" type="number" min="0" max="999999999" step="1" inputmode="numeric" value="5000" aria-describedby="ar-tipp-repter">
+</div>
+<label><input id="kesz-repter" data-price="ar-repter" type="checkbox" aria-describedby="pipa"> Megvan</label></div>
+</article>
+</div>
+<article class="extra" aria-labelledby="sajat">
+<div class="card">
+<h2 id="sajat">Saját ajándékötlet</h2>
+<div class="extra-fields">
+<label class="estimate" style="border:0">Ajándék neve
+<input id="sajat-nev" type="text" maxlength="120" autocomplete="off">
+</label>
+<label class="estimate" style="border:0">Becsült ár (Ft)
+<input id="ar-sajat" type="number" min="0" max="999999999" step="1" inputmode="numeric">
+</label>
+</div>
+<label><input id="kesz-sajat" data-price="ar-sajat" type="checkbox" aria-describedby="pipa"> Megvan</label>
+</div>
+</article>
+</main>
+<script>
+const budget = 15000;
+const format = new Intl.NumberFormat('hu-HU');
+const boxes = [...document.querySelectorAll('input[type="checkbox"]')];
+const output = document.getElementById('osszeg');
+
+function updateTotal() {
+  let total = 0;
+  let missing = 0;
+  for (const box of boxes) {
+    if (!box.checked) continue;
+    const price = document.getElementById(box.dataset.price);
+    if (price.value === '' || !price.validity.valid) {
+      missing += 1;
+      continue;
+    }
+    total += price.valueAsNumber;
+  }
+  const difference = budget - total;
+  const status = difference < 0
+    ? `${format.format(-difference)} Ft-tal a keret fölött`
+    : `${format.format(difference)} Ft marad a keretből`;
+  const incomplete = missing ? ` · ${missing} bejelölt tételhez hiányzik az érvényes ár` : '';
+  output.textContent = `Becsült összeg: ${format.format(total)} Ft / ${format.format(budget)} Ft · ${status}${incomplete}`;
+  output.dataset.over = String(difference < 0);
+}
+
+for (const field of document.querySelectorAll('main input')) {
+  const key = 'karacsony-2026:' + field.id;
+  const checkbox = field.type === 'checkbox';
+  try {
+    const saved = localStorage.getItem(key);
+    if (saved !== null) {
+      if (checkbox) field.checked = saved === '1';
+      else field.value = saved;
+    }
+  } catch {}
+  field.addEventListener(checkbox ? 'change' : 'input', () => {
+    try {
+      localStorage.setItem(key, checkbox ? String(Number(field.checked)) : field.value);
+    } catch {}
+    updateTotal();
+  });
+}
+updateTotal();
+</script>
+</body>
+</html>
